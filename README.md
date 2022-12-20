@@ -19,19 +19,30 @@
  => => naming to docker.io/repnaiae/kursach:1.0.0                                                                  0.0s
 
 Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+
   3. docker run --rm -p 8000:8000 repnaiae/kursach:1.0.0 - проверка выполнения и создания страницы html на http://localhost:8080/
+
 Результат: 172.17.0.1 - - [20/Dec/2022 08:50:29] "GET / HTTP/1.1" 200 -
 172.17.0.1 - - [20/Dec/2022 08:50:33] "GET /hello.html HTTP/1.1" 200 -
+
   4. docker push repnaiae/kursach:1.0.0 - пуш image на DockerHub
+  
   5. kubectl apply -f web.yaml - Устанавливаем manifest в кластер Kubernetes
+  
 Результат: deployment.apps/web-deployment created
+
   6. kubectl get pods -l app=web - проверяем правильность работы
+  
 Результат: NAME                              READY   STATUS    RESTARTS   AGE
            web-deployment-855ddf8f4b-24fx2   1/1     Running   0          3m2s
            web-deployment-855ddf8f4b-w4lgs   1/1     Running   0          3m2s
+           
 Создано два пода, READY 1/1, STATUS Running - значит всё хорошо
+
   7. kubectl port-forward --address 0.0.0.0 deployment/web 8080:8000 - обеспечить доступ к web-приложению web
+  
 Результат: Forwarding from 0.0.0.0:8080 -> 8000
+
 Handling connection for 8080
 Handling connection for 8080
 Handling connection for 8080
@@ -39,4 +50,5 @@ Handling connection for 8080
 Handling connection for 8080
 Handling connection for 8080
 Handling connection for 8080
+
 По адресу http://127.0.0.1:8080/hello.html можно видеть сообщение Hello world!
