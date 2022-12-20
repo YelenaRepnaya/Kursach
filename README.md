@@ -1,6 +1,7 @@
 # Kursach
   1. Переходим в репозиторий, где лежит проект: cd "C:\Users\Yelena.Repnaya\Desktop\Kursach\"
   2. docker build -t repnaiae/kursach:1.0.0 . - сборка Docker image с тегом 1.0.0
+  
 Результат: [+] Building 0.3s (9/9) FINISHED
  => [internal] load build definition from Dockerfile                                                               0.1s
  => => transferring dockerfile: 32B                                                                                0.0s
